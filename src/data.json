@@ -1,0 +1,9 @@
+{
+  "data": [
+    {
+      "variable": "Typography",
+      "source": "@lingoda/ui/react-native",
+      "isDefault": false
+    }
+  ]
+}
