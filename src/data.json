@@ -1,9 +1,18 @@
 {
   "data": [
     {
-      "variable": "Typography",
-      "source": "@lingoda/ui/react-native",
-      "isDefault": false
+      "exports": [
+        "Typography as TP",
+        "TypographyProps",
+        "Box",
+        "BoxProps",
+        "common",
+        "useUiContext",
+        "styled",
+        "Button",
+        "ButtonProps"
+      ],
+      "source": "@lingoda/ui/react-native"
     }
   ]
 }
