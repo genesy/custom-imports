@@ -104,9 +104,10 @@ export function activate(context: vscode.ExtensionContext) {
             const hasAlias = asIndex !== -1;
             if (hasAlias) {
               const alias = exportName.slice(asIndex + 4);
+              const actual = exportName.slice(0, asIndex);
               item.sortText = alias;
               item.insertText = alias;
-              item.label = alias;
+              item.label = `${alias}::${actual}`;
             }
 
             items.push(item);
