@@ -7,7 +7,7 @@ import * as ts from 'typescript';
 import * as vsc from 'vsc-base';
 
 export function activate(context: vscode.ExtensionContext) {
-  vscode.window.showInformationMessage('PRIORITY IMPORTS ACTIVE');
+  vscode.window.showInformationMessage('CUSTOM IMPORTS ACTIVE');
 
   vscode.commands.registerCommand(
     `${PACKAGE_NAME}.import`,
@@ -97,7 +97,7 @@ export function activate(context: vscode.ExtensionContext) {
             item.detail = `::import from ${source}`;
             item.command = {
               title: 'import',
-              command: 'priority-imports.import',
+              command: `${PACKAGE_NAME}.import`,
               arguments: [exportName, source],
             };
             const asIndex = exportName.indexOf(' as ');

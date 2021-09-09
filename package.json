@@ -1,6 +1,6 @@
 {
-  "name": "priority-imports",
-  "displayName": "priority-imports",
+  "name": "custom-imports",
+  "displayName": "Custom Imports",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -15,12 +15,7 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "priority-imports.helloWorld",
-        "title": "Hello World"
-      }
-    ]
+    "commands": []
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",

@@ -1,1 +1,2 @@
-export const PACKAGE_NAME = 'priority-imports';
+import { name } from 'package.json';
+export const PACKAGE_NAME = name;
