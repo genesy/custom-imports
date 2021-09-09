@@ -16,9 +16,13 @@ export function activate(context: vscode.ExtensionContext) {
       let content = vsc.getDocumentContent();
       if (!content || !document) return;
       const sourceFile = vsc.tsCreateSourceFile(content);
-      const SPACE = ' '; //TODO: scan file or tsconfig for spacing format
 
-      const importStatements = [];
+      // TODO: scan file or tsconfig for actual format requirements
+      const SPACE = ' ';
+      const SEMICOLON = ';';
+      const QUOTE = "'";
+
+      const importStatements: ts.Node[] = [];
       let theImport: ts.Node | undefined;
       let firstExpression: ts.Node | undefined;
 
@@ -35,6 +39,8 @@ export function activate(context: vscode.ExtensionContext) {
           theImport = node;
         }
       });
+
+      const lastImport = importStatements[importStatements.length - 1];
 
       if (theImport) {
         const importStatement = theImport.getFullText();
@@ -54,6 +60,20 @@ export function activate(context: vscode.ExtensionContext) {
         } else {
           vsc.insertAt(`${variable}, `, theImport.pos + 8); // 8 because `import ` length + 1 is static
         }
+      } else if (lastImport) {
+        if (!isDefault) {
+          vsc.insertAt(
+            `\nimport {${SPACE}${variable}${SPACE}} from ${QUOTE}${source}${QUOTE}${SEMICOLON}\n`,
+            lastImport.end,
+          );
+        } else {
+          vsc.insertAt(
+            `\nimport ${SPACE}${variable}${SPACE} from ${QUOTE}${source}${QUOTE}${SEMICOLON}\n`,
+            lastImport.end,
+          );
+        }
+      } else {
+        // TODO: for empty files
       }
     },
   );
