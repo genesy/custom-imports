@@ -1,18 +1,9 @@
 {
   "data": [
     {
-      "exports": [
-        "Typography as TP",
-        "TypographyProps",
-        "Box",
-        "BoxProps",
-        "common",
-        "useUiContext",
-        "styled",
-        "Button",
-        "ButtonProps"
-      ],
-      "source": "@lingoda/ui/react-native"
+      "exports": ["useCallback as ucb", "useEffect as uef", "useMemo"],
+      "source": "react",
+      "defaultName": "DefaultReact"
     }
   ]
 }
